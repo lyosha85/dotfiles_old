@@ -18,7 +18,7 @@ info "Installing common libraries and gem dependencies"
   sudo apt install -y libxslt1-dev libcurl4-openssl-dev libksba8 libksba-dev \
                       libqtwebkit-dev libreadline-dev gnupg2 gawk autoconf \
                       automake bison libffi-dev libgdbm-dev libncurses5-dev \
-                      libtool libyaml-dev libgmp-dev libssl-dev
+                      libtool libyaml-dev libgmp-dev libssl-dev build-essential
 
 info "Installing common tools"
   sudo apt install -y libsqlite3-dev sqlite3 tmux imagemagick curl zsh
@@ -39,7 +39,8 @@ info "Installing node and yarn"
   node -v; yarn -v
 
 info "Installing python"
-  sudo apt-get install -y python python3
+  sudo apt-get install -y python python3 python-setuptools python-dev python-pip python3-pip
+  sudo pip install --upgrade virtualenv
 
 info "Installing the heroku-config plugin to pull config variables locally to be used as ENV variables "
   heroku plugins:install git://github.com/ddollar/heroku-config.git
@@ -48,6 +49,13 @@ info "Installing chrome "
   wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
   sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
   sudo apt-get update && sudo apt-get install google-chrome-stable
+
+info "Installing docker"
+  snap install docker
+  sudo curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-compose-Linux-x86_64 -o /usr/local/bin/docker-compose
+  sudo chmod +x /usr/local/bin/docker-compose
+  docker -v
+  docker-compose -v
 
 info "Installing Heroku CLI client "
   sudo snap install heroku --classic
