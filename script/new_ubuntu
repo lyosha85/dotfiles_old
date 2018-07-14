@@ -51,6 +51,9 @@ info "Installing chrome "
   sudo apt-get update && sudo apt-get install google-chrome-stable
 
 info "Installing docker"
+  sudo groupadd docker
+  sudo usermod -aG docker $USER
+  sudo gpasswd -a $USER docker
   snap install docker
   sudo curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-compose-Linux-x86_64 -o /usr/local/bin/docker-compose
   sudo chmod +x /usr/local/bin/docker-compose
