@@ -98,6 +98,9 @@ info "Installing oh-my-zsh "
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
     chsh -s $(which zsh)
 
+info "Install slack"
+  snap install slack --classic
+
 info "Incraseing inotify watchers"
 num=16384
 echo $num | sudo tee -a /proc/sys/fs/inotify/max_user_watches
