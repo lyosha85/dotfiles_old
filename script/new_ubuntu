@@ -23,6 +23,22 @@ info "Installing common libraries and gem dependencies"
 info "Installing common tools"
   sudo apt install -y libsqlite3-dev sqlite3 tmux imagemagick curl zsh
 
+info "Make TMUX awesome"
+  cd ~/
+  git clone https://github.com/gpakosz/.tmux.git
+  ln -s -f .tmux/.tmux.conf
+  cp .tmux/.tmux.conf.local .
+
+info "Installing fuzzy search"
+  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+  ~/.fzf/install
+
+info "Installing VIM, Vundle, and make awesome"
+  sudo apt install -y vim
+  git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+  git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
+  sh ~/.vim_runtime/install_awesome_vimrc.sh
+
 info "Installing RVM"
   command curl -sSL https://rvm.io/mpapis.asc | gpg --import -
   \curl -sSL https://get.rvm.io | bash -s stable --ruby --gems=bundler
@@ -42,9 +58,6 @@ info "Installing python"
   sudo apt-get install -y python python3 python-setuptools python-dev python-pip python3-pip
   sudo pip install --upgrade virtualenv
 
-info "Installing the heroku-config plugin to pull config variables locally to be used as ENV variables "
-  heroku plugins:install git://github.com/ddollar/heroku-config.git
-
 info "Installing chrome "
   wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
   sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
@@ -63,6 +76,9 @@ info "Installing docker"
 info "Installing Heroku CLI client "
   sudo snap install heroku --classic
   heroku login
+
+info "Installing the heroku-config plugin to pull config variables locally to be used as ENV variables "
+  heroku plugins:install git://github.com/ddollar/heroku-config.git
 
 info "Installing Shopify Theme kit"
   curl -s https://raw.githubusercontent.com/Shopify/themekit/master/scripts/install | sudo python
