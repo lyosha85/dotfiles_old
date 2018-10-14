@@ -21,6 +21,11 @@
       "files.trimTrailingWhitespace": true
     }
   },
+  "ruby.rubocop.executePath": "/Users/alex/.rvm/gems/ruby-2.5.1/bin/rubocop",
+  "ruby.rubocop.onSave": true,
+  "editor.formatOnSave": true,
+  "prettier.eslintIntegration": true,
+  "eslint.autoFixOnSave": true,
   "todoScanRegex": "(?:TODO|FIXME)\\s*\\W{0,1}(\\s+.*|(?:\\w|\\d).*)$",
   "workbench.activityBar.visible": true,
   "telemetry.enableCrashReporter": false,
@@ -49,7 +54,6 @@
   "emmet.syntaxProfiles": {
     "javascript": "jsx"
   },
-  "editor.formatOnSave": true,
   "explorer.confirmDragAndDrop": false,
   "gitlens.historyExplorer.enabled": true,
   "terminal.integrated.fontFamily": "Fira Code, FiraCode",
@@ -59,11 +63,11 @@
   "editor.letterSpacing": 0.5,
   "files.trimTrailingWhitespace": true,
   "editor.fontWeight": "400",
-  "prettier.eslintIntegration": true,
+  "prettier.requireConfig": true,
   "editor.cursorStyle": "line",
   "editor.cursorWidth": 5,
   "editor.cursorBlinking": "solid",
   "editor.renderWhitespace": "all",
   "editor.fontLigatures": true,
-  "javascript.implicitProjectConfig.checkJs": true
+  "javascript.implicitProjectConfig.checkJs": true,
 }
